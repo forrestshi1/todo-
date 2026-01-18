@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>イシカワ前端复习小站</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">⚡</span>
+        <div>
+          <h1>前端复习小站</h1>
+          <p class="sub">HTML / CSS / JS 一页练习（含存储、事件、DOM、异步）</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="themeBtn" class="btn ghost" aria-label="切换主题">
+          🌙 切换主题
+        </button>
+        <button id="resetBtn" class="btn danger" aria-label="重置数据">
+          🧹 重置
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- 左列 -->
+      <section class="card">
+        <div class="card-head">
+          <h2>✅ 待办清单</h2>
+          <span class="pill" id="todoCount">0</span>
+        </div>
+
+        <form id="todoForm" class="row" autocomplete="off">
+          <input
+            id="todoInput"
+            class="input"
+            placeholder="输入待办，比如：复习事件循环"
+            maxlength="60"
+          />
+          <button class="btn" type="submit">添加</button>
+        </form>
+
+        <div class="row between">
+          <div class="filters" role="tablist" aria-label="筛选">
+            <button class="chip active" data-filter="all" type="button">全部</button>
+            <button class="chip" data-filter="active" type="button">未完成</button>
+            <button class="chip" data-filter="done" type="button">已完成</button>
+          </div>
+
+          <button id="clearDoneBtn" class="btn ghost" type="button">清空已完成</button>
+        </div>
+
+        <ul id="todoList" class="list" aria-label="待办列表"></ul>
+
+        <p class="hint">
+          操作：点击圆圈切换完成；双击标题编辑；拖拽排序（可选，见注释）。
+        </p>
+      </section>
+
+      <!-- 右列 -->
+      <section class="stack">
+        <section class="card">
+          <div class="card-head">
+            <h2>🍅 番茄计时器</h2>
+            <span class="pill" id="pomodoroState">专注</span>
+          </div>
+
+          <div class="timer">
+            <div id="timeText" class="time">25:00</div>
+            <div class="row gap">
+              <button id="startBtn" class="btn" type="button">开始</button>
+              <button id="pauseBtn" class="btn ghost" type="button" disabled>暂停</button>
+              <button id="stopBtn" class="btn ghost" type="button">停止</button>
+            </div>
+
+            <div class="row gap">
+              <label class="mini">
+                专注(min)
+                <input id="focusMin" class="mini-input" type="number" min="1" max="180" value="25" />
+              </label>
+              <label class="mini">
+                休息(min)
+                <input id="breakMin" class="mini-input" type="number" min="1" max="60" value="5" />
+              </label>
+              <button id="applyTimerBtn" class="btn ghost" type="button">应用</button>
+            </div>
+
+            <p class="hint">复习点：setInterval / 状态机 / 禁用按钮 / 表单取值</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h2>📮 表单校验 + 异步请求</h2>
+            <span class="pill">demo</span>
+          </div>
+
+          <form id="contactForm" class="form" novalidate>
+            <label class="label">
+              邮箱
+              <input id="email" class="input" placeholder="name@example.com" />
+              <small class="error" id="emailErr"></small>
+            </label>
+
+            <label class="label">
+              留言
+              <textarea id="msg" class="input" rows="3" placeholder="写点复习计划..."></textarea>
+              <small class="error" id="msgErr"></small>
+            </label>
+
+            <div class="row gap">
+              <button class="btn" type="submit">提交</button>
+              <button id="fillBtn" class="btn ghost" type="button">一键填充</button>
+            </div>
+
+            <div id="formResult" class="result" aria-live="polite"></div>
+          </form>
+
+          <p class="hint">复习点：正则校验 / 防抖 / fetch / try-catch / UI 状态</p>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>快捷键：<kbd>/</kbd> 聚焦待办输入框，<kbd>Esc</kbd> 取消编辑。</span>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
