@@ -69,8 +69,8 @@ const clearDoneBtn = $("#clearDoneBtn");
 
 let filter = "all";
 let todos = storage.get(TODO_KEY, [
-  { id: uid(), text: "复习 DOM 事件委托", done: false, createdAt: Date.now() },
-  { id: uid(), text: "写一个 localStorage 持久化", done: true, createdAt: Date.now() - 3600_000 },
+  { id: uid(), text: "学习日语", done: false, createdAt: Date.now() },
+  { id: uid(), text: "it学习", done: true, createdAt: Date.now() - 3600_000 },
 ]);
 
 function persistTodos() {
